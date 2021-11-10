@@ -6,7 +6,7 @@
 /*   By: proberto <proberto@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/27 22:42:42 by proberto          #+#    #+#             */
-/*   Updated: 2021/10/28 22:16:41 by proberto         ###   ########.fr       */
+/*   Updated: 2021/11/08 13:10:02 by proberto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,8 @@ void	ft_push_a(t_stack *stack_a, t_stack *stack_b)
 {
 	if (stack_b->size > 0)
 	{
-		stack_a->stack[--stack_a->top] = stack_b->stack[--stack_b->size];
-		stack_b->stack[stack_b->size] = 0;
+		stack_a->array[--stack_a->top] = stack_b->array[--stack_b->size];
+		stack_b->array[stack_b->size] = 0;
 		stack_a->size++;
 		write(1, "pa\n", 3);
 	}
@@ -37,8 +37,8 @@ void	ft_push_b(t_stack *stack_b, t_stack *stack_a)
 {
 	if (stack_a->size > 0)
 	{
-		stack_b->stack[stack_b->size++] = stack_a->stack[stack_a->top];
-		stack_a->stack[stack_a->top++] = 0;
+		stack_b->array[stack_b->size++] = stack_a->array[stack_a->top];
+		stack_a->array[stack_a->top++] = 0;
 		stack_a->size--;
 		write(1, "pb\n", 3);
 	}

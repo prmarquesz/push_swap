@@ -6,7 +6,7 @@
 /*   By: proberto <proberto@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/28 01:11:37 by proberto          #+#    #+#             */
-/*   Updated: 2021/10/28 22:34:35 by proberto         ###   ########.fr       */
+/*   Updated: 2021/11/08 13:11:15 by proberto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,14 +27,14 @@ static int	ft_rotate_a(t_stack *stack)
 	count = 0;
 	if (stack->size > 1)
 	{
-		tmp = stack->stack[stack->top];
+		tmp = stack->array[stack->top];
 		i = stack->top;
 		while (count++ < stack->size - 1)
 		{
-			stack->stack[i] = stack->stack[i + 1];
+			stack->array[i] = stack->array[i + 1];
 			i++;
 		}
-		stack->stack[i] = tmp;
+		stack->array[i] = tmp;
 		return (TRUE);
 	}
 	return (FALSE);
@@ -55,14 +55,14 @@ static int	ft_rotate_b(t_stack *stack)
 	count = 0;
 	if (stack->size > 1)
 	{
-		tmp = stack->stack[stack->size - 1];
+		tmp = stack->array[stack->size - 1];
 		i = stack->size - 1;
 		while (count++ < stack->size - 1)
 		{
-			stack->stack[i] = stack->stack[i - 1];
+			stack->array[i] = stack->array[i - 1];
 			i--;
 		}
-		stack->stack[i] = tmp;
+		stack->array[i] = tmp;
 		return (TRUE);
 	}
 	return (FALSE);

@@ -6,7 +6,7 @@
 /*   By: proberto <proberto@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/27 22:35:35 by proberto          #+#    #+#             */
-/*   Updated: 2021/10/28 22:32:26 by proberto         ###   ########.fr       */
+/*   Updated: 2021/11/08 13:11:40 by proberto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,9 +23,9 @@ static int	ft_swap_a(t_stack *stack)
 
 	if (stack->size > 1)
 	{
-		tmp = stack->stack[stack->top];
-		stack->stack[stack->top] = stack->stack[stack->top + 1];
-		stack->stack[stack->top + 1] = tmp;
+		tmp = stack->array[stack->top];
+		stack->array[stack->top] = stack->array[stack->top + 1];
+		stack->array[stack->top + 1] = tmp;
 		return (TRUE);
 	}
 	return (FALSE);
@@ -42,9 +42,9 @@ static int	ft_swap_b(t_stack *stack)
 
 	if (stack->size > 1)
 	{
-		tmp = stack->stack[stack->size - 1];
-		stack->stack[stack->size - 1] = stack->stack[stack->size - 2];
-		stack->stack[stack->size - 2] = tmp;
+		tmp = stack->array[stack->size - 1];
+		stack->array[stack->size - 1] = stack->array[stack->size - 2];
+		stack->array[stack->size - 2] = tmp;
 		return (TRUE);
 	}
 	return (FALSE);
