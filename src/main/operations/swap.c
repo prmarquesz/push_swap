@@ -6,7 +6,7 @@
 /*   By: proberto <proberto@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/27 22:35:35 by proberto          #+#    #+#             */
-/*   Updated: 2021/11/08 13:11:40 by proberto         ###   ########.fr       */
+/*   Updated: 2021/11/12 10:11:42 by proberto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,22 +64,22 @@ void	ft_swap(t_stack *stack_a, t_stack *stack_b, t_swap op)
 	if (op == SA)
 	{
 		if (ft_swap_a(stack_a))
-			write(1, "sa\n", 3);
+			ft_putendl_fd("sa", 1);
 	}
 	else if (op == SB)
 	{
 		if (ft_swap_b(stack_b))
-			write(1, "sb\n", 3);
+			ft_putendl_fd("sb", 1);
 	}
 	else
 	{
 		response_a = ft_swap_a(stack_a);
 		response_b = ft_swap_b(stack_b);
 		if (response_a && response_b)
-			write(1, "ss\n", 3);
+			ft_putendl_fd("ss", 1);
 		else if (response_a)
-			write(1, "sa\n", 3);
+			ft_putendl_fd("sa", 1);
 		else if (response_b)
-			write(1, "sb\n", 3);
+			ft_putendl_fd("sb", 1);
 	}
 }

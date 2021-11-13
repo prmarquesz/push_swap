@@ -6,7 +6,7 @@
 /*   By: proberto <proberto@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/28 01:11:37 by proberto          #+#    #+#             */
-/*   Updated: 2021/11/08 13:11:15 by proberto         ###   ########.fr       */
+/*   Updated: 2021/11/12 10:11:06 by proberto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,22 +82,22 @@ void	ft_rotate(t_stack *stack_a, t_stack *stack_b, t_rotate op)
 	if (op == RA)
 	{
 		if (ft_rotate_a(stack_a))
-			write(1, "ra\n", 3);
+			ft_putendl_fd("ra", 1);
 	}
 	else if (op == RB)
 	{
 		if (ft_rotate_b(stack_b))
-			write(1, "rb\n", 3);
+			ft_putendl_fd("rb", 1);
 	}
 	else
 	{
 		response_a = ft_rotate_a(stack_a);
 		response_b = ft_rotate_b(stack_b);
 		if (response_a && response_b)
-			write(1, "rr\n", 3);
+			ft_putendl_fd("rr", 1);
 		else if (response_a)
-			write(1, "ra\n", 3);
+			ft_putendl_fd("ra", 1);
 		else if (response_b)
-			write(1, "rb\n", 3);
+			ft_putendl_fd("rb", 1);
 	}
 }

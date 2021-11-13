@@ -6,7 +6,7 @@
 /*   By: proberto <proberto@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/28 19:21:32 by proberto          #+#    #+#             */
-/*   Updated: 2021/11/08 13:10:36 by proberto         ###   ########.fr       */
+/*   Updated: 2021/11/12 10:10:11 by proberto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,10 +95,10 @@ void	ft_reverse_rotate(t_stack *stack_a, t_stack *stack_b,
 		response_a = ft_reverse_rotate_a(stack_a);
 		response_b = ft_reverse_rotate_b(stack_b);
 		if (response_a && response_b)
-			write(1, "rrr\n", 4);
+			ft_putendl_fd("rrr", 1);
 		else if (response_a)
-			write(1, "rra\n", 4);
+			ft_putendl_fd("rra", 1);
 		else if (response_b)
-			write(1, "rrb\n", 4);
+			ft_putendl_fd("rrb", 1);
 	}
 }
