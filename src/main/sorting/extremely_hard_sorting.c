@@ -6,7 +6,7 @@
 /*   By: proberto <proberto@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/30 00:22:27 by proberto          #+#    #+#             */
-/*   Updated: 2021/11/13 00:37:14 by proberto         ###   ########.fr       */
+/*   Updated: 2021/11/13 13:28:52 by proberto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,6 +99,6 @@ void	ft_extremely_hard_sorting(t_stack *stack_a, t_stack *stack_b)
 		if (stack_a->smaller <= stack_a->size / 2)
 			ft_rotate(stack_a, stack_b, RA);
 		else
-			ft_reverse_rotate(stack_a, stack_b, RA);
+			ft_reverse_rotate(stack_a, stack_b, RRA);
 	}
 }

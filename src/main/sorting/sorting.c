@@ -6,7 +6,7 @@
 /*   By: proberto <proberto@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/29 15:31:19 by proberto          #+#    #+#             */
-/*   Updated: 2021/11/13 01:55:59 by proberto         ###   ########.fr       */
+/*   Updated: 2021/11/13 13:30:00 by proberto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ static void	ft_look_for_top_down_fit(t_stack *stack_a, t_stack *stack_b)
 	{
 		count = stack_a->size - count;
 		while (count-- > 0)
-			ft_reverse_rotate(stack_a, stack_b, RA);
+			ft_reverse_rotate(stack_a, stack_b, RRA);
 	}
 	ft_push_a(stack_a, stack_b);
 }
@@ -65,7 +65,7 @@ static void	ft_look_for_bottom_up_fit(t_stack *stack_a, t_stack *stack_b)
 	if (count <= stack_a->size / 2)
 	{
 		while (count-- > 0)
-			ft_reverse_rotate(stack_a, stack_b, RA);
+			ft_reverse_rotate(stack_a, stack_b, RRA);
 	}
 	else
 	{
