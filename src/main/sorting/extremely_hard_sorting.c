@@ -6,7 +6,7 @@
 /*   By: proberto <proberto@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/30 00:22:27 by proberto          #+#    #+#             */
-/*   Updated: 2021/11/09 12:22:33 by proberto         ###   ########.fr       */
+/*   Updated: 2021/11/13 00:37:14 by proberto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,12 +20,12 @@
 */
 static void	ft_push_smaller_half_on_stack_b(t_stack *stack_a, t_stack *stack_b)
 {
-	int	middle;
-	int	i;
-	int	times;
+	long long	middle;
+	int			i;
+	int			times;
 
 	times = 1;
-	middle = -2147483648;
+	middle = LLONG_REF;
 	while (times < 10)
 	{
 		i = 0;
@@ -54,11 +54,24 @@ static void	ft_push_smaller_half_on_stack_b(t_stack *stack_a, t_stack *stack_b)
 */
 static void	ft_push_bigger_half_on_stack_b(t_stack *stack_a, t_stack *stack_b)
 {
-	while (stack_a->size > 1)
+	while (stack_a->size > 2)
 		ft_push_b(stack_b, stack_a);
-	stack_a->sorted = TRUE;
-	ft_sorting(stack_a, stack_b);
-	ft_sorting(stack_a, stack_b);
+	if (stack_a->array[stack_a->top] > stack_a->array[stack_a->top + 1])
+		ft_swap(stack_a, stack_b, SA);
+	if (stack_b->array[stack_b->size - 1] < stack_a->array[stack_a->top])
+		ft_push_a(stack_a, stack_b);
+	else if (stack_b->array[stack_b->size - 1]
+		< stack_a->array[stack_a->top + 1])
+	{
+		ft_push_a(stack_a, stack_b);
+		ft_swap(stack_a, stack_b, SA);
+	}
+	else
+	{
+		ft_push_a(stack_a, stack_b);
+		ft_rotate(stack_a, stack_b, RA);
+	}
+	ft_update_stack_config(stack_a);
 }
 
 /**

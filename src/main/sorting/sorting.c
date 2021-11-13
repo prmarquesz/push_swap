@@ -6,27 +6,11 @@
 /*   By: proberto <proberto@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/29 15:31:19 by proberto          #+#    #+#             */
-/*   Updated: 2021/11/10 12:22:31 by proberto         ###   ########.fr       */
+/*   Updated: 2021/11/13 01:55:59 by proberto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../../includes/push_swap.h"
-
-/**
- * @brief Function that updates the stack_a config.
- * @details Whenever stack elements are moved, their references (smallest and 
- * largest element) also need to be updated, as these references are used when 
- * the array is traversed.  
- * @param stack The stack to be updated.
- * @return Void.
-*/
-static void	ft_update_stack_config(t_stack *stack)
-{
-	stack->larger = ft_get_biggest_index(stack->array, stack->top, stack->len);
-	stack->smaller = ft_get_smallest_index(stack->array, stack->top,
-			stack->len);
-	stack->sorted = ft_is_sorted(stack->array, stack->top, stack->len);
-}
 
 /**
  * @brief Function that searches from top to bottom for the best fit of the 
@@ -34,7 +18,7 @@ static void	ft_update_stack_config(t_stack *stack)
  * @param stack The stack to be sorted.
  * @return Void.
 */
-void	ft_look_for_top_down_fit(t_stack *stack_a, t_stack *stack_b)
+static void	ft_look_for_top_down_fit(t_stack *stack_a, t_stack *stack_b)
 {
 	int	count;
 	int	i;
@@ -66,7 +50,7 @@ void	ft_look_for_top_down_fit(t_stack *stack_a, t_stack *stack_b)
  * @param stack The stack to be sorted.
  * @return Void.
 */
-void	ft_look_for_bottom_up_fit(t_stack *stack_a, t_stack *stack_b)
+static void	ft_look_for_bottom_up_fit(t_stack *stack_a, t_stack *stack_b)
 {
 	int	count;
 	int	i;
@@ -98,7 +82,7 @@ void	ft_look_for_bottom_up_fit(t_stack *stack_a, t_stack *stack_b)
  * @param stack The stack to be sorted.
  * @return Void.
 */
-void	ft_to_fit_in(t_stack *stack_a, t_stack *stack_b)
+static void	ft_to_fit_in(t_stack *stack_a, t_stack *stack_b)
 {
 	if (stack_b->array[stack_b->size - 1] > stack_a->array[stack_a->len - 1]
 		&& stack_a->sorted == TRUE)
@@ -122,8 +106,8 @@ void	ft_sorting(t_stack *stack_a, t_stack *stack_b)
 {
 	if (stack_b->array[stack_b->size - 1] < stack_a->array[stack_a->top])
 	{
-		if (stack_b->array[stack_b->size - 1] > stack_a->array[stack_a->len - 1]
-			|| stack_a->size == 1)
+		if (stack_b->array[stack_b->size - 1]
+			> stack_a->array[stack_a->len - 1])
 			ft_push_a(stack_a, stack_b);
 		else
 			ft_to_fit_in(stack_a, stack_b);
@@ -132,7 +116,7 @@ void	ft_sorting(t_stack *stack_a, t_stack *stack_b)
 		< stack_a->array[stack_a->top + 1])
 	{
 		ft_push_a(stack_a, stack_b);
-		if (stack_b->array[stack_b->size - 2]
+		if (stack_b->size > 1 && stack_b->array[stack_b->size - 2]
 			> stack_b->array[stack_b->size - 1])
 			ft_swap(stack_a, stack_b, SS);
 		else
